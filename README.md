@@ -8,6 +8,8 @@ This program generates an FM modulation, with RDS (Radio Data System) data gener
 
 PiFmAdv modulates the PLLC instead of the clock divider for better signal purity, which means that the signal is also less noisy. This has a great impact on stereo as it's reception is way better.
 
+Now it works on the Raspberry Pi 4B
+
 For the PLLC modulation to be stable there is one additional step to do. Due to the low voltage detection the PLLC frequency can be reduced to safe value in an attempt to prevent crashes. When this happens, the carrier freqency changes based on the original GPU frequency.
 To prevent this, we can easily change the GPU freqency to match the safe frequency. Now when due to the low voltage detection the PLLC frequency changes to safe value, nothing happens as the normal value and safe value are the same.
 
@@ -205,7 +207,7 @@ The samples are played by `pi_fm_adv.c` that is adapted from Richard Hirst's [Pi
 
 
 ## History
-
+* 2024-05-28: support for the Raspberry Pi 4B
 * 2015-09-05: support for the Raspberry Pi 2
 * 2014-11-01: support for toggling the Traffic Announcement (TA) flag at run-time
 * 2014-10-19: bugfix (cleanly stop the DMA engine when the specified file does not exist, or it's not possible to read from stdin)
